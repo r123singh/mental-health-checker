@@ -101,8 +101,8 @@ MIT License – see the LICENSE file for details.
 ## 🌐 Links
 
 - **GitHub:** [github.com/r123singh/mental-health-checker](https://github.com/r123singh/mental-health-checker)
-- **Demo Video:** [YouTube Demo](https://youtu.be/your-demo-link)
-- **Live Preview:** [mental-health-checker.vercel.app](https://mental-health-checker.vercel.app)
+- **Demo Video:** [YouTube Demo](https://youtu.be/USFvBSNsmK8)
+- **Live Preview:** [mental-health-checker.vercel.app](https://mental-health-checker-r123singh-r123singhs-projects.vercel.app)
 
 ---
 
