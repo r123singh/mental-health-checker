@@ -1,36 +1,131 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧠 Mental Health Chat & Tracker
 
-## Getting Started
+A calming, AI-powered space for mental wellness journaling, mood tracking, and supportive conversation.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🌟 Why This App?
+
+Unlike legacy mental health apps, this platform uses advanced AI (OpenAI & Hugging Face) to generate empathetic, context-aware responses and track your emotional trends over time. It's designed to feel like a gentle, understanding companion—always ready to listen, encourage, and celebrate your "tiny wins."
+
+---
+
+## ✨ Features
+
+- 🤖 **Empathetic AI Chat**: Vent, reflect, or just say hi—the AI responds with understanding and support.
+- 📝 **Journaling with Sentiment Analysis**: Write your thoughts and get instant mood insights.
+- 📊 **Emotional Trend Tracking**: Visualize your mood, stress, and energy over time.
+- 🎉 **Tiny Wins & Streaks**: Celebrate small victories and build positive habits.
+- 🌈 **Mood Tracker Emojis**: Log your feelings with a tap—see your emotional journey at a glance.
+- 💬 **Motivational Quotes & Tips**: Get gentle nudges and encouragement throughout your experience.
+- 📱 **Optional SMS Check-ins**: Stay connected with yourself via Twilio-powered reminders.
+- 🔒 **Secure Authentication**: Your data is private and protected.
+
+---
+
+## 🛠️ Tech Stack
+
+- Next.js 15 (App Router)
+- TypeScript
+- Tailwind CSS (with custom calming theme)
+- OpenAI API (GPT-4o)
+- Hugging Face API (sentiment analysis)
+- Twilio (SMS check-ins)
+- Prisma (SQLite)
+- NextAuth.js
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- API keys for:
+  - OpenAI
+  - Hugging Face
+  - Twilio
+
+### Environment Variables
+
+Create a `.env` file in the root directory with:
+
+```env
+OPENAI_API_KEY=your_openai_api_key_here
+HUGGINGFACE_API_KEY=your_huggingface_api_key_here
+TWILIO_ACCOUNT_SID=your_twilio_account_sid_here
+TWILIO_AUTH_TOKEN=your_twilio_auth_token_here
+TWILIO_PHONE_NUMBER=your_twilio_phone_number_here
+NEXTAUTH_SECRET=your_nextauth_secret_here
+NEXTAUTH_URL=http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+git clone https://github.com/r123singh/mental-health-checker.git
+cd mental-health-checker
+npm install
+npx prisma migrate dev
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🗂️ Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+- `src/app/` – Next.js app router pages
+- `src/components/` – React components
+- `src/lib/` – Utility functions and API integrations
+- `src/types/` – TypeScript type definitions
+- `prisma/` – Database schema and migrations
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🤝 Contributing
 
-## Deploy on Vercel
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a new Pull Request
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 License
+
+MIT License – see the LICENSE file for details.
+
+---
+
+## 🌐 Links
+
+- **GitHub:** [github.com/r123singh/mental-health-checker](https://github.com/r123singh/mental-health-checker)
+- **Demo Video:** [YouTube Demo](https://youtu.be/your-demo-link)
+- **Live Preview:** [mental-health-checker.vercel.app](https://mental-health-checker.vercel.app)
+
+---
+
+## 🖼️ Preview
+
+![App Preview](./public/preview.png)
+
+---
+
+## 💡 Inspiration
+
+> "You are stronger than you think." 🌟  
+> "Consistent sleep is a superpower — keep up the good habits!" 😴
+
+---
+
+## 🧩 Visual/UX Highlights
+
+- Mood tracker emojis: 😊 😐 😔 😴 💪
+- Color-coded scorecards for mood, stress, and energy
+- Gentle micro-interactions: confetti, checkmarks, and "Tiny Wins" celebrations
+- Motivational banners and supportive AI tips
+
+---
+
+**Start your journey to better mental wellness—one check-in at a time!**

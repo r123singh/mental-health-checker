@@ -1,103 +1,105 @@
-import Image from "next/image";
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/lib/auth';
+import Link from 'next/link';
+import ChatInterface from '@/components/ChatInterface';
+import { FaHeart, FaLeaf, FaSmile, FaUser, FaSignOutAlt, FaBook, FaChartLine } from 'react-icons/fa';
+import SignOutButton from '@/components/SignOutButton';
 
-export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+export default async function Home() {
+  const session = await getServerSession(authOptions);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  if (!session) {
+    return (
+      <main className="min-h-screen bg-gradient-to-br from-lavender-50 to-peach-50">
+        <nav className="bg-white/80 backdrop-blur-sm shadow-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between h-16">
+              <div className="flex items-center space-x-2">
+                <div className="flex space-x-2">
+                  <FaHeart className="text-lavender-400 w-6 h-6" />
+                  <FaLeaf className="text-mint-400 w-6 h-6" />
+                  <FaSmile className="text-peach-400 w-6 h-6" />
+                </div>
+                <h1 className="text-xl font-serif font-light text-gray-800">
+                  Mental Health Chat & Tracker
+                </h1>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <div className="max-w-4xl mx-auto mt-16 text-center">
+          <h2 className="text-4xl font-serif font-light text-gray-800 mb-4">
+            Welcome to Mental Health Chat & Tracker
+          </h2>
+          <p className="text-lg text-gray-600 mb-8 font-sans">
+            A supportive space for mental health journaling and tracking, powered by AI.
+          </p>
+          <div className="space-x-4">
+            <Link
+              href="/auth/signin"
+              style={{ background: '#7c3aed', color: 'white' }}
+              className="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg shadow-sm cursor-pointer"
+            >
+              Sign In
+            </Link>
+            <Link
+              href="/auth/signup"
+              className="inline-flex items-center px-6 py-3 border border-lavender-200 text-sm font-medium rounded-lg text-lavender-600 bg-white hover:bg-lavender-50 transition-colors duration-200 shadow-sm cursor-pointer"
+            >
+              Sign Up
+            </Link>
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    );
+  }
+
+  return (
+    <main className="min-h-screen bg-gradient-to-br from-lavender-50 to-peach-50">
+      <nav className="bg-white/80 backdrop-blur-sm shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-16">
+            <div className="flex items-center space-x-2">
+              <div className="flex space-x-2">
+                <FaHeart className="text-lavender-400 w-6 h-6" />
+                <FaLeaf className="text-mint-400 w-6 h-6" />
+                <FaSmile className="text-peach-400 w-6 h-6" />
+              </div>
+              <h1 className="text-xl font-serif font-light text-gray-800">
+                Mental Health Chat & Tracker
+              </h1>
+            </div>
+            <div className="flex items-center space-x-6">
+              <Link
+                href="/journal"
+                style={{ background: '#7c3aed', color: 'white' }}
+                className="flex items-center px-4 py-2 rounded-lg shadow-sm cursor-pointer"
+              >
+                <FaBook className="mr-2" />
+                Journal
+              </Link>
+              <Link
+                href="/dashboard"
+                style={{ background: '#7c3aed', color: 'white' }}
+                className="flex items-center px-4 py-2 rounded-lg shadow-sm cursor-pointer"
+              >
+                <FaChartLine className="mr-2" />
+                Dashboard
+              </Link>
+              <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-2">
+                  <FaUser className="text-lavender-600" />
+                  <span className="text-gray-700">{session.user?.name || session.user?.email}</span>
+                </div>
+                <SignOutButton />
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div className="max-w-4xl mx-auto mt-8">
+        <ChatInterface />
+      </div>
+    </main>
   );
 }
